@@ -1,5 +1,5 @@
 <?php
-//CONFIG FILE - Control Pannel by Gabriele Preziosa
+//CONFIG FILE - Control Pannel by Gabriele Preziosa - Andrea Fucci
 
 //GENERAL SETTINGS
 $website_name = "EndlessTeamwork";
