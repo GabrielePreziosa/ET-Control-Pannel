@@ -10,6 +10,7 @@
     <title>EndlessTeamwork - Login</title>
 </head>
 <body>
+
     <script>
     function checkPass() {
         if (email.length != 0 && passwd.length != 0) {
@@ -45,10 +46,12 @@
         form.action = "loadlogin.php";
         var emailf = document.createElement("input");
         emailf.setAttribute('type',"text");
-        emailf.setAttribute('name',document.getElementById("email").value);
+        emailf.setAttribute('name',"email");
+        emailf.setAttribute('value',document.getElementById("email").value);
         var passwdf = document.createElement("input");
         passwdf.setAttribute('type',"text");
-        passwdf.setAttribute('name',document.getElementById("passwd").value);
+        passwdf.setAttribute('name',"passwd");
+        passwdf.setAttribute('value',document.getElementById("passwd").value);
         form.appendChild(emailf);
         form.appendChild(passwdf);
         form.submit();
@@ -71,7 +74,6 @@
 
     <!--LOGIN-->
     <div id="login" class="col s12">
-    
         <div class="container">
 
 
