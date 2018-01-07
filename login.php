@@ -27,7 +27,7 @@
                         Materialize.toast("Benvenuto, " + resp[1] + " " + resp[2], 4000);
                         setTimeout(tryLogin, 3000)
                     }   else {
-                        Materialize.toast("Si è verificato un errore", 4000);
+                        Materialize.toast("Errore interno", 4000);
                     }
                 }
             };
@@ -80,14 +80,14 @@
             <div class="row">
                 <form id="loginform" onsubmit="event.preventDefault(); checkPass()" action="loadlogin.php" method="POST" class="col s12 center-align"> <!--LOGIN FORM-->
                 <div class="row">
-                    <div class="input-field col s6">
+                    <div class="input-field col s12">
                     <i class="material-icons prefix">account_circle</i>
                     <input  type="email" id="email" name="email" required class="validate">
                     <label for="email" data-error="Devi inserire un indirizzo mail valido">Email</label>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="input-field col s6">
+                    <div class="input-field col s12">
                     <i class="material-icons prefix">fingerprint</i>
                     <input type="password" id="passwd" name="passwd" required class="validate">
                     <label>Password</label>
