@@ -1,5 +1,5 @@
 <?php
-require "config.php"; //crendential are stored here
+require "config.php"; //crendentials are stored here
 
 /*CONNECT TO DB*/
 $mysqli = new mysqli($dbhost, $dbuser, $dbpasswd, $dbdatabase);
