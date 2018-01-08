@@ -28,49 +28,114 @@
     <div class="nav-content">
       <ul class="tabs tabs-fixed-width tabs-transparent">
 		<?php
-			//TODO Controllo se è un cliente, tecnico o amministratore
 			switch($_SESSION["user_ruolo"]){
 				case "Cliente":
 		?>
 		
-			<li class="tab"><a class="active" href="">Home</a></li>
-			<li class="tab"><a class="" href="">Preventivi</a></li>
-			<li class="tab"><a href="">Commissioni in corso</a></li>
-			<li class="tab"><a href="">Cloud</a></li>
-			<li class="tab"><a href="">Fatturazione</a></li>
-			<li class="tab"><a href="">Impostazioni</a></li>
+			<li class="tab"><a class="active" href="#CHome">Home</a></li>
+			<li class="tab"><a class="" href="#CPreventivi">Preventivi</a></li>
+			<li class="tab"><a href="#CInCorso">Commissioni in corso</a></li>
+			<li class="tab"><a onClick="location.href='http://areaclienti.endlessteamwork.it'">Cloud</a></li>
+			<li class="tab"><a href="#CFatturazione">Fatturazione</a></li>
+			<li class="tab"><a href="#CImpostazioni">Impostazioni</a></li>
 		<?php
 			break;
-			
 			case "Tecnico":
 		?>
-			<li class="tab"><a class="active" href="">Home</a></li>
-			<li class="tab"><a class="" href="">Commissioni in corso</a></li>
-			<li class="tab"><a class="" href="">Storico commissioni</a></li>
-			<li class="tab"><a class="" href="">Nuove commissioni</a></li>
-			<li class="tab"><a class="" href="">Ticket</a></li>
+			<li class="tab"><a class="active" href="#THome">Home</a></li>
+			<li class="tab"><a class="" href="#TInCorso">Commissioni in corso</a></li>
+			<li class="tab"><a class="" href="#TStorico">Storico commissioni</a></li>
+			<li class="tab"><a class="" href="#TNuove">Nuove commissioni</a></li>
+			<li class="tab"><a class="" href="#TTicket">Ticket</a></li>
 		<?php
 			break;
 			case "Amministratore":
 		?>
-			<li class="tab"><a class="active" href="">Home</a></li>
-			<li class="tab"><a class="" href="">Commissioni in corso</a></li>
-			<li class="tab"><a class="" href="">Ticket</a></li>
-			<li class="tab"><a class="" href="">Nuove richieste</a></li>
-			<li class="tab"><a class="" href="">Tecnici</a></li>
-			<li class="tab"><a class="" href="">Fatturazione</a></li>
-			<li class="tab"><a class="" href="">Cloud</a></li>
+			<li class="tab"><a class="active" href="#AHome">Home</a></li>
+			<li class="tab"><a class="" href="#AInCorso">Commissioni in corso</a></li>
+			<li class="tab"><a class="" href="#ATicket">Ticket</a></li>
+			<li class="tab"><a class="" href="#ANuove">Nuove richieste</a></li>
+			<li class="tab"><a class="" href="#ATecnici">Tecnici</a></li>
+			<li class="tab"><a class="" href="#AFatturazione">Fatturazione</a></li>
+			<li class="tab"><a onClick="location.href='http://areaclienti.endlessteamwork.it'">Cloud</a></li>
 		<?php
 			
 			break;
 			}
 		?>
-			
-
       </ul>
     </div>
     </nav>
 	
+	<?php
+		switch($_SESSION["user_ruolo"]){
+			case "Cliente":
+	?>
+			<div id="CHome" class="">
+			  <div class="row ">
+				<div class="col s12 m4 l2" ></div>
+				<div class="col s12 m4 l8">
+				  <div class="card">
+					<div class="card-content">
+					  <p>Contenitore della home dei clienti</p>
+					</div>
+				  </div>
+				</div>
+				<div class="col s12 m4 l2" ></div>
+			  </div>
+			</div>
+			<div id="CPreventivi" class="">Test 2</div>
+			<div id="CInCorso" class="">Test 3</div>
+			<div id="CFatturazione" class="">Test 4</div>
+			<div id="CImpostazioni" class="">Test 5</div>
+	<?php
+			break;
+			case "Tecnico":
+	?>
+			<div id="THome" class="">
+			  <div class="row ">
+				<div class="col s12 m4 l2" ></div>
+				<div class="col s12 m4 l8">
+				  <div class="card">
+					<div class="card-content">
+					  <p>Contenitore della home dei tecnici</p>
+					</div>
+				  </div>
+				</div>
+				<div class="col s12 m4 l2" ></div>
+			  </div>
+			</div>
+			<div id="TInCorso" class="">Test 2</div>
+			<div id="TStorico" class="">Test 3</div>
+			<div id="TNuove" class="">Test 4</div>
+			<div id="TTicket" class="">Test 5</div>
+	
+	<?php
+			break;
+			case "Amministratore":
+	?>
+			<div id="AHome" class="">
+			  <div class="row ">
+				<div class="col s12 m4 l2" ></div>
+				<div class="col s12 m4 l8">
+				  <div class="card">
+					<div class="card-content">
+					  <p>Contenitore della home degli amministratori</p>
+					</div>
+				  </div>
+				</div>
+				<div class="col s12 m4 l2" ></div>
+			  </div>			
+			</div>
+			<div id="AInCorso" class="">Test 2</div>
+			<div id="ATicket" class="">Test 3</div>
+			<div id="ANuove" class="">Test 4</div>
+			<div id="ATecnici" class="">Test 5</div>	
+			<div id="AFatturazione" class="">Test 6</div>	
+	<?php
+			break;
+		}
+	?>
 	
 </body>
 </html>
