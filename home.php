@@ -21,6 +21,9 @@
     <div class="nav-wrapper">
       <a href="index.php" class="brand-logo center"><?php require "config.php"; echo $website_name;?></a>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+	  <ul id="nav-mobile" class="right hide-on-med-and-down">
+		<li><a class="waves-effect waves-light btn" href="logout.php"><i class="material-icons left">power_settings_new</i>Logout</a></li>
+      </ul>
     </div>
     <div class="nav-content">
       <ul class="tabs tabs-fixed-width tabs-transparent">
