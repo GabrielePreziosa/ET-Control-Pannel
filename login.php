@@ -45,11 +45,9 @@
         form.method = "POST";
         form.action = "loadlogin.php";
         var emailf = document.createElement("input");
-        emailf.setAttribute('type',"text");
         emailf.setAttribute('name',"email");
         emailf.setAttribute('value',document.getElementById("email").value);
         var passwdf = document.createElement("input");
-        passwdf.setAttribute('type',"text");
         passwdf.setAttribute('name',"passwd");
         passwdf.setAttribute('value',document.getElementById("passwd").value);
         form.appendChild(emailf);

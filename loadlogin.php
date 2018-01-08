@@ -1,14 +1,38 @@
 <?php 
 	session_start();
-	$_SESSION["user_email"] = $_POST["email"];
-	$_SESSION["user_passwd"] = $_POST["passwd"];
-	
 	require "mysql.php";
-	$query = $mysqli->query("SELECT * FROM users WHERE EMAIL = '" . $_POST["email"] . "'");
 	
-	$rows = $query->fetch_assoc();
+	if (isset($_POST["email"]) && isset($_POST["passwd"]) ) {
 	
-	$_SESSION["user_ruolo"] = $rows["RUOLO"];
+		$checkemail = $mysqli->query("SELECT * FROM users WHERE EMAIL = '" . $email . "'");
 	
-	header("Location: home.php");
+		if ($checkemail->num_rows > 0) {
+	
+			$checkpass = $mysqli->query("SELECT * FROM users WHERE EMAIL = '" . $email . "' AND PASSWORD = '" . md5($passwd) . "'");
+	
+			if ($checkpass->num_rows > 0) {
+	
+				$userdata = $checkpass->fetch_assoc();
+	
+				//save userdata in session variables
+				$_SESSION["user_email"] = $rows["EMAIL"];
+				$_SESSION["user_ruolo"] = $rows["RUOLO"];
+				$_SESSION["user_name"] = $rows["COGNOME"] . " " . $rows["NOME"];
+				
+				header("location: home.php");
+	
+			}   else {
+				
+				header("location: index.php");
+	
+			}
+	
+		}   else {
+				
+			header("location: index.php");
+	
+		}
+	
+	}
+
  ?>

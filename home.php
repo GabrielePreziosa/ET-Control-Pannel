@@ -1,3 +1,9 @@
+<?php
+	session_start();
+	if (!isset($_SESSION["user_email"])) {
+		header("location: index.php");
+	}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,11 +16,6 @@
     <title>EndlessTeamwork - Home</title>
 </head>
 <body>
-
-<?php
-	session_start();
-	if (isset($_SESSION["user_email"])) {
-?>
 
 	<nav class="nav-extended">
     <div class="nav-wrapper">
@@ -67,14 +68,6 @@
     </div>
     </nav>
 	
-<?php
-		
-	}   else {
-
-		header("location: index.php"); //not logged
-
-	}
-?>
 	
 </body>
 </html>
