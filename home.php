@@ -3,6 +3,7 @@
 	if (!isset($_SESSION["user_email"])) {
 		header("location: index.php");
 	}
+	require "get.php";
 ?>
 <!DOCTYPE html>
 <html>
@@ -38,7 +39,7 @@
     <div class="nav-content">
       <ul class="tabs tabs-fixed-width tabs-transparent">
 		<?php
-			switch(getRuolo($email)){
+			switch(getRuolo($_SESSION["user_email"])){
 				case "Cliente":
 		?>
 		
@@ -78,7 +79,7 @@
     </nav>
 	
 	<?php
-		switch($_SESSION["user_ruolo"]){
+		switch(getRuolo($_SESSION["user_email"])){
 			case "Cliente":
 	?>
 			<div id="CHome" class="">

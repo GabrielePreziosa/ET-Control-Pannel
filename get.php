@@ -1,10 +1,10 @@
 <?php
 
-require "mysql.php";
-
 function getRuolo($email) {
 
-    $execute = $mysqli->query("SELECT * FROM users WHERE EMAIL = '" . $_POST["email"] . "'");
+    require "mysql.php";
+
+    $execute = $mysqli->query("SELECT * FROM users WHERE EMAIL = '" . $email . "'");
     
     $data = $execute->fetch_assoc();
 
