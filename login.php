@@ -119,7 +119,7 @@
     if (isset($_GET["reg"])) {
 
         echo '
-        Materialize.toast("Effettua laccesso", 4000);
+        Materialize.toast("Ora puoi accedere", 4000);
         Materialize.toast("Registrato correttamente: ' . $_GET["reg"] . '", 4000);';
 
     }
