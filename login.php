@@ -45,6 +45,40 @@
         return false;
     }
 
+    function checkRegistration() {      
+        if (remail.length != 0 && rpasswd.length != 0 && rpasswd2.length != 0 && name.length != 0 && surname.lenght != 0) {
+
+            if (rpasswd == rpasswd2) {
+
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        var resp = this.responseText;
+                        if (resp == "not_registered") {
+                            Materialize.toast("Indirizzo email non registrato", 4000);
+                        }   else if (resp == "incorrect_passwd") {
+                            Materialize.toast("Password non corretta", 4000);
+                        }   else if (resp.includes("success")) {
+                            resp = resp.split("-");
+                            Materialize.toast("Benvenuto, " + resp[1] + " " + resp[2], 4000);
+                            setTimeout(tryLogin, 3000)
+                        }   else {
+                            Materialize.toast("Errore interno", 4000);
+                        }
+                    }
+                };
+                xmlhttp.open("GET", "checkloginajax.php?email=" + document.getElementById("email").value + "&passwd=" + document.getElementById("passwd").value, true);
+                xmlhttp.send();
+
+            }   else {
+
+                Materialize.toast("Le password non corrispondono", 4000);
+
+            }
+
+        }
+    }
+
     function tryLogin() {
         var form = document.createElement("form");
         document.body.appendChild(form);
@@ -78,13 +112,14 @@
 
     <!--LOGIN-->
     <div id="login" class="col s12">
+
         <div class="container">
 
 
             <p style="text-align:center;">Inserisci i dati richiesti per effettuare l'accesso</p>
 
             <div class="row">
-                <form id="loginform" onsubmit="event.preventDefault(); checkPass()" action="loadlogin.php" method="POST" class="col s12 center-align"> <!--LOGIN FORM-->
+                <form id="loginform" onsubmit="event.preventDefault(); checkPass()" class="col s12 center-align"> <!--LOGIN FORM-->
                 <div class="row">
                     <div class="input-field col s12">
                     <i class="material-icons prefix">account_circle</i>
@@ -112,8 +147,49 @@
 
     <!--REGISTER-->
     <div id="register" class="col s12">
-    
-    Registrazione
+
+    <div class="container">
+
+        <p style="text-align:center;">Inserisci i dati richiesti per effettuare la registrazione</p>
+
+        <div class="row">
+            <form id="regform" onsubmit="event.preventDefault(); checkRegistration()" class="col s12 center-align"> <!--REGISTRATION FORM-->
+            <div class="row">
+                <div class="input-field col s6">
+                <i class="material-icons prefix">account_circle</i>
+                <input  type="text" id="name" name="name" required class="validate">
+                <label>Nome</label>
+                </div>
+                <div class="input-field col s6">
+                <input  type="text" id="surname" name="surname" required class="validate">
+                <label>Cognome</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                <i class="material-icons prefix">email</i>
+                <input type="email" id="remail" name="email" required class="validate">
+                <label for="email" data-error="Devi inserire un indirizzo mail valido">Email</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                <i class="material-icons prefix">fingerprint</i>
+                <input type="password" id="rpasswd" name="passwd" required class="validate">
+                <label>Password</label>
+                </div>
+                <div class="input-field col s6">
+                <input type="password" id="rpasswd2" name="passwd2" required class="validate">
+                <label>Reinserisci password</label>
+                </div>
+            </div>
+            <button class="btn waves-effect waves-light" type="submit" name="action">Registrati
+                <i class="material-icons right">send</i>
+            </button>
+            </form>
+        </div>
+
+    </div>
     
     </div>
 
