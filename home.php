@@ -14,16 +14,16 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="js/materialize.js"></script>
     <title>EndlessTeamwork - Home</title>
-	<script>
-		  $(document).ready(function() {
-			$('select').material_select();
-		  });
-	</script>
-	<style>
-		.spaziatura p{
-			padding-bottom: 30px;
-		}
-	</style>
+		<script>
+				$(document).ready(function() {
+				$('select').material_select();
+				});
+		</script>
+		<style>
+			.spaziatura p{
+				padding-bottom: 30px;
+			}
+		</style>
 </head>
 <body>
 
@@ -38,7 +38,7 @@
     <div class="nav-content">
       <ul class="tabs tabs-fixed-width tabs-transparent">
 		<?php
-			switch($_SESSION["user_ruolo"]){
+			switch(getRuolo($email)){
 				case "Cliente":
 		?>
 		

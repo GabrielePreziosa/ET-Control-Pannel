@@ -16,7 +16,6 @@
 	
 				//save userdata in session variables
 				$_SESSION["user_email"] = $userdata["EMAIL"];
-				$_SESSION["user_ruolo"] = $userdata["RUOLO"];
 				$_SESSION["user_name"] = $userdata["COGNOME"] . " " . $userdata["NOME"];
 				
 				header("location: index.php");
