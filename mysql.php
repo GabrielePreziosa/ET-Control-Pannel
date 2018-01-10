@@ -4,8 +4,7 @@ require "config.php"; //crendentials are stored here
 /*CONNECT TO DB*/
 $mysqli = new mysqli($dbhost, $dbuser, $dbpasswd, $dbdatabase);
 if ($mysqli->connect_error) {
-    die('Errore di connessione a mysql (' . $mysqli->connect_errno . ') '
-    . $mysqli->connect_error);
+    die('Errore di connessione a mysql:' . $mysqli->connect_errno . " " . $mysqli->connect_error);
 }
 
 /*DEFAULT TABLE*/
