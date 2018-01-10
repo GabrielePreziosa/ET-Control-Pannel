@@ -54,20 +54,15 @@
                 xmlhttp.onreadystatechange = function() {
                     if (this.readyState == 4 && this.status == 200) {
                         var resp = this.responseText;
-                        if (resp == "not_registered") {
-                            Materialize.toast("Indirizzo email non registrato", 4000);
-                        }   else if (resp == "incorrect_passwd") {
-                            Materialize.toast("Password non corretta", 4000);
-                        }   else if (resp.includes("success")) {
-                            resp = resp.split("-");
-                            Materialize.toast("Benvenuto, " + resp[1] + " " + resp[2], 4000);
-                            setTimeout(tryLogin, 3000)
-                        }   else {
-                            Materialize.toast("Errore interno", 4000);
+                        if (resp == "registered") {
+                            Materialize.toast("Indirizzo email gia' registrato", 4000);
+                        }   else if (resp == "go") {
+                            Materialize.toast("Registrazione in corso", 2500);
+                            setTimeout(tryRegistration, 3000)
                         }
                     }
                 };
-                xmlhttp.open("GET", "checkloginajax.php?email=" + document.getElementById("email").value + "&passwd=" + document.getElementById("passwd").value, true);
+                xmlhttp.open("GET", "checkregajax.php?email=" + document.getElementById("remail").value, true);
                 xmlhttp.send();
 
             }   else {
@@ -94,6 +89,43 @@
         form.appendChild(passwdf);
         form.submit();
     }
+
+    function tryRegistration() {
+        var form = document.createElement("form");
+        document.body.appendChild(form);
+        form.method = "POST";
+        form.action = "loadregistration.php";
+        var emailf = document.createElement("input");
+        emailf.setAttribute('name',"email");
+        emailf.setAttribute('value',document.getElementById("remail").value);
+        var passwdf = document.createElement("input");
+        passwdf.setAttribute('name',"passwd");
+        passwdf.setAttribute('value',document.getElementById("rpasswd").value);
+        var namef = document.createElement("input");
+        namef.setAttribute('name',"name");
+        namef.setAttribute('value',document.getElementById("rname").value);
+        var surnamef = document.createElement("input");
+        surnamef.setAttribute('name',"surname");
+        surnamef.setAttribute('value',document.getElementById("rsurname").value);
+        form.appendChild(emailf);
+        form.appendChild(passwdf);
+        form.appendChild(namef);
+        form.appendChild(surnamef);
+        form.submit();
+    }
+
+    <?php //reg message (toast)
+
+    if (isset($_GET["reg"])) {
+
+        echo '
+        Materialize.toast("Effettua laccesso", 4000);
+        Materialize.toast("Registrato correttamente: ' . $_GET["reg"] . '", 4000);';
+
+    }
+
+    ?>
+
     </script>
 
     <!--NAV-->
@@ -114,7 +146,6 @@
     <div id="login" class="col s12">
 
         <div class="container">
-
 
             <p style="text-align:center;">Inserisci i dati richiesti per effettuare l'accesso</p>
 
