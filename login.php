@@ -18,6 +18,10 @@
 <body>
 
     <script>
+
+    var logged = false;
+    var registered = false;
+
     function checkPass() {
         if (email.length != 0 && passwd.length != 0) {
 
@@ -30,9 +34,12 @@
                     }   else if (resp == "incorrect_passwd") {
                         Materialize.toast("Password non corretta", 4000);
                     }   else if (resp.includes("success")) {
-                        resp = resp.split("-");
-                        Materialize.toast("Benvenuto, " + resp[1] + " " + resp[2], 4000);
-                        setTimeout(tryLogin, 3000)
+                        if (!logged) {
+                            resp = resp.split("-");
+                            Materialize.toast("Benvenuto, " + resp[1] + " " + resp[2], 3000);
+                            setTimeout(tryLogin, 3000)
+                            logged = true;
+                        }
                     }   else {
                         Materialize.toast("Errore interno", 4000);
                     }
@@ -57,8 +64,11 @@
                         if (resp == "registered") {
                             Materialize.toast("Indirizzo email gia' registrato", 4000);
                         }   else if (resp == "go") {
-                            Materialize.toast("Registrazione in corso", 2500);
-                            setTimeout(tryRegistration, 3000)
+                            if (!registered) {
+                                Materialize.toast("Registrazione in corso", 2500);
+                                setTimeout(tryRegistration, 2500)
+                                registered = true;
+                            }
                         }
                     }
                 };
