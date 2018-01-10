@@ -45,10 +45,10 @@
         return false;
     }
 
-    function checkRegistration() {      
-        if (remail.length != 0 && rpasswd.length != 0 && rpasswd2.length != 0 && name.length != 0 && surname.lenght != 0) {
+    function checkRegistration() {
+        if (remail.length != 0 && rpasswd.length != 0 && rpasswd2.length != 0 && rname.length != 0 && rsurname.lenght != 0) {
 
-            if (rpasswd == rpasswd2) {
+            if (rpasswd.value == rpasswd2.value) {
 
                 var xmlhttp = new XMLHttpRequest();
                 xmlhttp.onreadystatechange = function() {
@@ -157,11 +157,11 @@
             <div class="row">
                 <div class="input-field col s6">
                 <i class="material-icons prefix">account_circle</i>
-                <input  type="text" id="name" name="name" required class="validate">
+                <input  type="text" id="rname" name="name" required class="validate">
                 <label>Nome</label>
                 </div>
                 <div class="input-field col s6">
-                <input  type="text" id="surname" name="surname" required class="validate">
+                <input  type="text" id="rsurname" name="surname" required class="validate">
                 <label>Cognome</label>
                 </div>
             </div>
