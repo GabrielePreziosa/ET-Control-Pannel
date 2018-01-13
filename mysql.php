@@ -9,6 +9,7 @@ if ($mysqli->connect_error) {
 
 /*DEFAULT TABLE*/
 $mysqli->query("CREATE TABLE IF NOT EXISTS users (EMAIL VARCHAR(40), PASSWORD VARCHAR(50), NOME VARCHAR(20), COGNOME VARCHAR(20), RUOLO VARCHAR(15), LASTIP VARCHAR(15))");
+
 $mysqli->query("CREATE TABLE `commissioni` (
  `id` int(11) NOT NULL AUTO_INCREMENT,
  `EMAIL_CLIENTE` varchar(40) NOT NULL,
@@ -17,7 +18,7 @@ $mysqli->query("CREATE TABLE `commissioni` (
  `SERVIZIO` varchar(512) NOT NULL,
  `DESCRIZIONE` longtext NOT NULL,
  `NOTE` longtext NOT NULL,
- `BUDGET` varchar(6) NOT NULL,
+ `BUDGET` varchar(7) NOT NULL,
  `DATA_INIZIO` varchar(10) NOT NULL,
  `DATA_FINE` varchar(10) NOT NULL,
  PRIMARY KEY (`id`)
