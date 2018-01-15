@@ -122,13 +122,17 @@
 						<form class="col s12" action="" method = "POST">
 						  <div class="row">
 							<div class="input-field col s6">
+							<?php
+								require 'config.php';
+							?>
 								<select>
 								  <option value="" disabled selected>Seleziona la categoria</option>
-								  <option value="1">Developing</option>
-								  <option value="2">Grafica</option>
-								  <option value="3">Website</option>
-								  <option value="4">Videogame</option>
-								  <option value="5">Setting</option>
+								  <?php 
+									foreach($categorie as $categoria) 
+											echo "<option value='$i+1'>$categoria[0]</option>";
+									
+								  ?>
+								  
 								</select>
 								<label>Seleziona una categoria</label>
 							</div>
@@ -248,11 +252,98 @@
 			  <div class="row ">
 				<div class="col s12 m4 l2" ></div>
 				<div class="col s12 m4 l8">
-				  <div class="card">
-					<div class="card-content">
+					<h3 class="center-align">Modifica le impostazioni dell'account</h3><br><br>
+						<ul class="collapsible popout" data-collapsible="accordion">
+
+						<li>
+						  <div class="collapsible-header">
+							<i class="material-icons">settings</i>Modifica password:
+							<div class="right-align"></div>
+						  </div>
+						  <div class="collapsible-body" style="text-align: justify">
+							  <div class="row">
+								<div class="input-field col s10">
+								  <input placeholder="Inserire la password attuale..." name="p_actual_pwd" type="password" class="validate">
+								  <label for="first_name">Password attuale</label>
+								</div>
+							  </div>
+							  <div class="row">
+								<div class="input-field col s5">
+								  <input placeholder="Inserire la nuova password..." name="new_pwd1" type="password" class="validate">
+								  <label for="first_name">Nuova password</label>
+								</div>
+								<div class="input-field col s5">
+								  <input placeholder="Ripetere la nuova password..." name="new_pwd2" type="password" class="validate">
+								  <label for="first_name">Ripeti nuova password</label>
+								</div>
+							  </div>
+							  <button class="waves-effect waves-light btn btn-verde"><i class="material-icons right">send</i>Salva</button>
+							  
+						  </div>
+						</li>
+	
+						<li>
+						  <div class="collapsible-header">
+							<i class="material-icons">email</i>Modifica email:
+							<div class="right-align"></div>
+						  </div>
+						  <div class="collapsible-body" style="text-align: justify">
+							  <div class="row">
+								<div class="input-field col s5">
+								  <input placeholder="Inserire la email attuale..." name="e_actual_email" type="email" class="validate">
+								  <label for="first_name">Email attuale</label>
+								</div>
+								<div class="input-field col s5">
+								  <input placeholder="Inserire la password..." name="e_actual_pwd" type="password" class="validate">
+								  <label for="first_name">Password</label>
+								</div>
+							  </div>
+							  <div class="row">
+								<div class="input-field col s5">
+								  <input placeholder="Inserire la nuova email..." name="new_email1" type="email" class="validate">
+								  <label for="first_name">Nuova email</label>
+								</div>
+								<div class="input-field col s5">
+								  <input placeholder="Ripetere la nuova email..." name="new_email2" type="email" class="validate">
+								  <label for="first_name">Ripeti nuova email</label>
+								</div>
+							  </div>
+							  <button class="waves-effect waves-light btn btn-verde"><i class="material-icons right">send</i>Salva</button>
+							  
+						  </div>
+						</li>	
 						
-					</div>
-				  </div>
+						<li>
+						  <div class="collapsible-header">
+							<i class="material-icons">person</i>Modifica dati personali:
+							<div class="right-align"></div>
+						  </div>
+						  <div class="collapsible-body" style="text-align: justify">
+							  <div class="row">
+								<div class="input-field col s5">
+								  <input placeholder="Inserire la email attuale..." name="d_actual_email" type="email" class="validate">
+								  <label for="first_name">Email attuale</label>
+								</div>
+								<div class="input-field col s5">
+								  <input placeholder="Inserire la password..." name="d_actual_pwd" type="password" class="validate">
+								  <label for="first_name">Password</label>
+								</div>
+							  </div>
+							  <div class="row">
+								<div class="input-field col s5">
+								  <input placeholder="Inserire il nuovo nome..." name="d_nome" type="text" class="validate">
+								  <label for="first_name">Nome</label>
+								</div>
+								<div class="input-field col s5">
+								  <input placeholder="Inserire il nuovo cognome..." name="d_cognome" type="text" class="validate">
+								  <label for="first_name">Cognome</label>
+								</div>
+							  </div>
+							  <button class="waves-effect waves-light btn btn-verde"><i class="material-icons right">send</i>Salva</button>
+							  
+						  </div>
+						</li>
+					  </ul>
 				</div>
 				<div class="col s12 m4 l2" ></div>
 			  </div>				

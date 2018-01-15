@@ -18,6 +18,10 @@
 				$_SESSION["user_email"] = $userdata["EMAIL"];
 				$_SESSION["user_name"] = $userdata["COGNOME"] . " " . $userdata["NOME"];
 				
+				$IPSql = "UPDATE users SET LASTIP='$_SERVER[REMOTE_ADDR]' WHERE EMAIL LIKE '$_SESSION[user_email]'";
+				$mysqli->query($IPSql);
+				
+				
 				header("location: index.php");
 	
 			}   else {
